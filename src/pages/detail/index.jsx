@@ -1,12 +1,14 @@
 import useDataForChart from "../../hooks/useDataForChart";
 import NotFound from "../../components/NotFound";
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { useParams } from "react-router";
 import Loader from "../../components/Loader";
 import useCoinId from "../../hooks/useCoinId";
 import "./detail.css";
 import CreateChart from "../../components/CreateChart";
 import { BsLink45Deg } from "react-icons/bs";
+import { formatNumber } from "../../components/CoinRow";
+import DOMPurify from "dompurify";
 function Detail() {
   const [days, setDays] = useState(1);
   const [interval, setInterval] = useState("minutely");
@@ -60,7 +62,7 @@ function Detail() {
             <div className="detail__hero-price">
               <p>Precio de {coinData.name}</p>
               <div>
-                ${coinData.market_data.current_price.usd}{" "}
+                ${formatNumber(coinData.market_data.current_price.usd)}{" "}
                 <span
                   className={
                     coinData.market_data.price_change_percentage_24h > 0 &&
@@ -94,7 +96,12 @@ function Detail() {
           </section>
           <section className="detail__description">
             <h3>What is {coinData.name}?</h3>
-            <p>{coinData.description.en}</p>
+
+            <div
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(coinData.description.en),
+              }}
+            ></div>
           </section>
         </>
       )}

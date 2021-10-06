@@ -53,10 +53,11 @@
 .btn-gray {
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: 13px;
   background: #323546;
   color: #a1a7bb;
-  padding: 5px;
+  padding: 5px 8px;
   border-radius: 6px;
   margin: 8px;
   font-weight: 600;
@@ -136,11 +137,20 @@
 .detail__chart-date button.day-active {
   background-color: rgb(23, 25, 36);
 }
+/*-----------------------------DESCRIPTION---------------------------------*/
 
 .detail__description {
   margin: 20px 0;
   padding: 15px 5px;
 }
-.detail__description p {
+.detail__description div {
+  font-size: 17px;
   margin-top: 20px;
+  font-weight: 200;
+  line-height: 22px;
+  font-family: sans-serif;
+}
+.detail__description a {
+  color: rgb(65, 65, 255);
+  font-weight: 600;
 }

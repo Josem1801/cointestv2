@@ -5,6 +5,7 @@ function Search() {
   const [search, setSearch] = useState("");
   const [searchId, setSearchId] = useState("");
   const handleSearch = (e) => {
+    e.preventDefault();
     let value = e.target.value.toLowerCase();
     value = value.replace(/\s/g, "-");
     setSearchId(value);
