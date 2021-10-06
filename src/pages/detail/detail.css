@@ -14,6 +14,12 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
 }
+@media (max-width: 480px) {
+  .detail__hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
 /*------------------------------HERO LEFT---------------------------------*/
 .detail__hero-about {
   display: grid;
@@ -31,18 +37,36 @@
   color: white;
   background: gray;
   padding: 2px 6px;
+  margin: 5px;
   border-radius: 4px;
 }
 .detail__hero-about h1 {
   font-size: 25px;
-  margin: 0 10px;
+  margin-left: 10px;
 }
-.detail__hero-about h2 {
-  font-size: 12px;
+
+.detail__hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.btn-gray {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
   background: #323546;
-  color: gray;
+  color: #a1a7bb;
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 6px;
+  margin: 8px;
+  font-weight: 600;
+}
+.btn-gray.white {
+  color: white;
+  font-weight: 500;
+}
+.btn-gray:hover {
+  background: #3e496a;
 }
 /*------------------------------HERO RIGHT---------------------------------*/
 .detail__hero-price {
@@ -73,6 +97,7 @@
 .detail__hero-price > div span.bull {
   background: #16c784;
 }
+
 /*-----------------------------CHART---------------------------------*/
 
 .detail__chart-date .detail__chart {
@@ -88,7 +113,7 @@
   padding: 5px;
   background: rgb(50, 53, 70);
   border-radius: 8px;
-  margin: 25px 0 10px 0;
+  margin: 25px auto 10px auto;
 }
 .detail__chart-date button {
   width: 40px;
@@ -110,4 +135,12 @@
 
 .detail__chart-date button.day-active {
   background-color: rgb(23, 25, 36);
+}
+
+.detail__description {
+  margin: 20px 0;
+  padding: 15px 5px;
+}
+.detail__description p {
+  margin-top: 20px;
 }

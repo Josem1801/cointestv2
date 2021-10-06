@@ -6,7 +6,7 @@ import Loader from "../../components/Loader";
 import useCoinId from "../../hooks/useCoinId";
 import "./detail.css";
 import CreateChart from "../../components/CreateChart";
-
+import { BsLink45Deg } from "react-icons/bs";
 function Detail() {
   const [days, setDays] = useState(1);
   const [interval, setInterval] = useState("minutely");
@@ -43,10 +43,18 @@ function Detail() {
                   alt={coinData.name}
                 />
                 <h1>{coinData.name}</h1>
-                <h2>{coinData.symbol.toUpperCase()}</h2>
+                <h2 className="btn-gray ">{coinData.symbol.toUpperCase()}</h2>
               </div>
-              <div>
+              <div className="detail__hero-links">
                 <span className="rank">Puesto # {coinData.coingecko_rank}</span>
+                <a
+                  href={coinData.links.homepage[0]}
+                  className="btn-gray white"
+                  target="_blank"
+                >
+                  <BsLink45Deg fontSize={16} />
+                  {coinData.links.homepage[0]}
+                </a>
               </div>
             </div>
             <div className="detail__hero-price">
@@ -83,6 +91,10 @@ function Detail() {
             ) : (
               <CreateChart data={chartData} />
             )}
+          </section>
+          <section className="detail__description">
+            <h3>What is {coinData.name}?</h3>
+            <p>{coinData.description.en}</p>
           </section>
         </>
       )}

@@ -4,6 +4,11 @@ import "./coinRow.css";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
+//function to format number with commas
+export const formatNumber = (number) => {
+  return new Intl.NumberFormat().format(number);
+};
+
 function CoinRow({
   id,
   rank,
@@ -16,10 +21,6 @@ function CoinRow({
 }) {
   const color = dayPercent >= 0 ? "green" : "red";
 
-  //function to format number with commas
-  const formatNumber = (number) => {
-    return new Intl.NumberFormat().format(number);
-  };
   return (
     <>
       <div className="row">

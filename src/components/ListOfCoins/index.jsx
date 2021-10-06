@@ -6,7 +6,6 @@ import "./listOfCoins.css";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 function ListOfCoins() {
   const { coins, loading, setPagination, pagination } = useCoins();
-
   const handleLastPag = () => {
     if (pagination <= 1) return;
     setPagination((prev) => prev - 1);
