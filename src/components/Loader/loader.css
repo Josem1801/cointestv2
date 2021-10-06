@@ -1,0 +1,55 @@
+.loading__normal {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100px;
+  height: 25px;
+  margin: 50px auto;
+}
+
+.loading__normal svg {
+  color: rgb(0, 225, 255);
+
+  font-size: 12px;
+}
+
+.loading__normal span:nth-of-type(1),
+.loading__normal span:nth-of-type(2),
+.loading__normal span:nth-of-type(3) {
+  animation-name: loading;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.6, 0.05, 0.15, 0.95);
+  animation-direction: alternate;
+}
+.loading__normal span:nth-of-type(2) {
+  animation-delay: calc(0.8s / 4);
+}
+.loading__normal span:nth-of-type(3) {
+  animation-delay: calc(0.8s / 2);
+}
+
+@keyframes loading {
+  0% {
+    transform: translate3d(0, 20px, 0) scale(0.9, 0.8);
+  }
+
+  100% {
+    transform: translate3d(0, -10px, 0) scale(1.2, 1.1);
+  }
+}
+
+.loading__simple {
+  background: transparent;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(87, 0, 250, 0.705);
+  border-left-color: transparent;
+  animation: Loader 1s infinite cubic-bezier(0.27, 0.6, 0.54, 0.38);
+}
+
+@keyframes Loader {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,25 @@
+.row {
+  display: grid;
+  grid-template-columns: 20px 80px 100px 150px repeat(4, 0.5fr);
+  place-items: center;
+  padding: 15px 20px 20px 40px;
+  margin: 0 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  min-width: 800px;
+}
+.row:hover {
+  background: #1c2033;
+}
+
+.row__day {
+  display: flex;
+  align-items: center;
+}
+.triangle {
+  font-size: 8px;
+}
+@media (max-width: 600px) {
+  .row {
+    margin: 0;
+  }
+}

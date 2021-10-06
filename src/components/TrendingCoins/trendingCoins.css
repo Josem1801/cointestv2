@@ -1,0 +1,78 @@
+h3 {
+  font-size: 25px;
+}
+.trending {
+  display: block;
+  padding: 20px 32px;
+  width: 100%;
+  margin: 0 auto;
+}
+.trending__container {
+  display: flex;
+  height: auto;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+
+.trending__container::-webkit-scrollbar {
+  width: 8px;
+  height: 6px;
+}
+.trending__container::-webkit-scrollbar-thumb {
+  background: rgb(63, 146, 255);
+  border-radius: 8px;
+}
+.trending__container::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.2);
+}
+.trending__container::-webkit-scrollbar-thumb:active {
+  background-color: white;
+}
+
+.trending__card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.35fr 0.65fr;
+  grid-template-rows: 1fr;
+  min-width: 250px;
+  height: 80px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 25px 10px 25px 10px;
+  border-radius: 10px;
+  background-color: #0093e9;
+
+  transition: ease-in-out 0.3s;
+  cursor: pointer;
+}
+.trending__card img {
+  place-self: center;
+}
+.trending__card span {
+  align-self: center;
+  justify-content: start;
+  line-height: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+}
+.trending__card .score {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: -10px;
+  top: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  background: crimson;
+  color: white;
+  font-size: 12px;
+}
+
+.trending__card:hover {
+  background-color: #45eba6;
+}

@@ -1,0 +1,25 @@
+.custom-tooltip {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  padding: 25px;
+  background: rgb(34, 37, 49);
+  border-radius: 10px;
+}
+.custom-tooltip .title {
+  color: gray;
+  margin: 8px 0 0 0;
+}
+.custom-tooltip .title span {
+  color: white;
+}
+
+.custom-tooltip .date {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 12px;
+}
+tspan {
+  font-size: 12px;
+}
