@@ -6,6 +6,7 @@ import Loader from "../../components/Loader";
 import useCoinId from "../../hooks/useCoinId";
 import "./detail.css";
 import CreateChart from "../../components/CreateChart";
+
 function Detail() {
   const [days, setDays] = useState(1);
   const [interval, setInterval] = useState("minutely");
@@ -64,27 +65,27 @@ function Detail() {
             </div>
           </section>
           <section className="detail__price"></section>
+          <section className="detail__chart">
+            <div className="detail__chart-date">
+              {[1, 7, 30, 90, 364].map((date, i) => (
+                <button
+                  key={i}
+                  className={`${date === days && "day-active"}`}
+                  onClick={() => handleDays(date)}
+                >
+                  {date > 7 && date < 364 ? date / 30 : date === 364 ? 1 : date}
+                  {letterDate[i]}
+                </button>
+              ))}
+            </div>
+            {loadingChart ? (
+              <Loader variant="simple" />
+            ) : (
+              <CreateChart data={chartData} />
+            )}
+          </section>
         </>
       )}
-      <section className="detail__chart">
-        <div className="detail__chart-date">
-          {[1, 7, 30, 90, 364].map((date, i) => (
-            <button
-              key={i}
-              className={`${date === days && "day-active"}`}
-              onClick={() => handleDays(date)}
-            >
-              {date > 7 && date < 364 ? date / 30 : date === 364 ? 1 : date}
-              {letterDate[i]}
-            </button>
-          ))}
-        </div>
-        {loadingChart ? (
-          <Loader variant="simple" />
-        ) : (
-          <CreateChart data={chartData} />
-        )}
-      </section>
     </main>
   );
 }
