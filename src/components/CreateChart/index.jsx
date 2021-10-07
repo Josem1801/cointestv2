@@ -1,6 +1,7 @@
 import "./customTooltip.css";
 import React from "react";
 import { ResponsiveContainer, AreaChart, YAxis, Area, Tooltip } from "recharts";
+import { formatNumber } from "../CoinRow";
 function CreateChart({ data }) {
   return (
     <div>
@@ -32,7 +33,7 @@ const CustomTooltip = ({ active, payload, label }) => {
       <div className="custom-tooltip">
         <p className="date">{payload[0].payload.date.replace(/-/g, "/")}</p>
         <p className="title">
-          Price : <span>${payload[0].value.toFixed(8)}</span>
+          Price : <span>${formatNumber(payload[0].value)}</span>
         </p>
       </div>
     );

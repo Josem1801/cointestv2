@@ -1,6 +1,6 @@
 import useDataForChart from "../../hooks/useDataForChart";
 import NotFound from "../../components/NotFound";
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router";
 import Loader from "../../components/Loader";
 import useCoinId from "../../hooks/useCoinId";
@@ -14,7 +14,7 @@ function Detail() {
   const [interval, setInterval] = useState("minutely");
   const { currency } = useParams();
 
-  const { chartData, loadingChart } = useDataForChart({
+  const { chartData } = useDataForChart({
     currency,
     days,
     interval,
@@ -53,6 +53,7 @@ function Detail() {
                   href={coinData.links.homepage[0]}
                   className="btn-gray white"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <BsLink45Deg fontSize={16} />
                   {coinData.links.homepage[0]}
@@ -88,11 +89,7 @@ function Detail() {
                 </button>
               ))}
             </div>
-            {loadingChart ? (
-              <Loader variant="simple" />
-            ) : (
-              <CreateChart data={chartData} />
-            )}
+            {<CreateChart data={chartData} />}
           </section>
           <section className="detail__description">
             <h3>What is {coinData.name}?</h3>

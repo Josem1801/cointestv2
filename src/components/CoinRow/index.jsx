@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 
 //function to format number with commas
 export const formatNumber = (number) => {
-  if (number.toString().split(/\./).length === 1) {
-    return new Intl.NumberFormat().format(number);
-  } else {
-    return number;
-  }
+  if (number >= 1) return number.toFixed(2);
+  if (number > 0.001) return number.toFixed(4);
+  if (number > 0.00001) return number.toFixed(6);
+  if (number > 0.0000001) return number.toFixed(8);
+  return number.toFixed(10);
 };
 
 function CoinRow({
